@@ -43,5 +43,3 @@ You can customize the Redis configuration by editing the `cache` section in the 
 You can also customize the QuickLink configuration by setting environment variables in the `environment` section of the `web` service.
 
 To stop QuickLink, run `docker-compose down`. This will stop and remove the containers created by Docker Compose.
-
-<font size="0.1">These "README.md" file generated with help of AI.</font>
