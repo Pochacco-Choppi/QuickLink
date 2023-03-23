@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{{ url('index') }}">QuickLink</a>
+<h1>Paste the URL to be shortened</h1>
+{% if errors %}
+    {% for error in errors %}
+        <p>{{error.text}}</p>
+    {% endfor %}
+{% endif %}
+ <form method="POST">
+  <input type="text" name="long_url" placeholder="Enter the link here">
+  <input type="submit" value="Shorten URL">
+ </form>
+{% if short_url %}
+  <p>Your short link</p>
+  <a href="{{ short_key }}" id="short_url">{{ short_url }}</a>
+    <button style="width: 260px" onclick="handleCopyTextFromHref()">
+      Copy
+    </button>
+{% endif %}
+
+<script type="text/javascript">
+function handleCopyTextFromHref() {
+    let textToCopy = document.getElementById("short_url");
+    let textToClipBoard = textToCopy.innerHTML;
+    navigator.clipboard.writeText(textToClipBoard);
+}
+</script>
+</body>
+</html>
